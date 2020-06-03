@@ -4,5 +4,11 @@ TatsumakiとTwiggyを使うとかんたんにできちゃう、ってのはWeb�
 でもTatsumakiはcpanmで導入する際にdependencyに問題があるらしく、テストで失敗する。<br>
 ということでリアルタイムは無理でもそれっぽいものは作ってみたい思い。
 
+## Memo
+### 起動方法
+```
+perl script/lite-server
+```
+
 ## 参考
 - [WEB上からapacheの生ログをリアルタイム？で見ることが出来るようにするWEBアプリ - @OMAKASE](http://www.omakase.org/perl/web_apache_log.html)
