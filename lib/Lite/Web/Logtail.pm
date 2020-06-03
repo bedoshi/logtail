@@ -24,7 +24,8 @@ sub cat {
 
     my $str = '';
     while(my $line = <FILE>){
-        $str .= $line;
+        chomp($line);
+        $str .= $line . "\n";
     }
     close(FILE);
 
