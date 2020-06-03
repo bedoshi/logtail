@@ -9,6 +9,11 @@ TatsumakiとTwiggyを使うとかんたんにできちゃう、ってのはWeb�
 ```
 perl script/lite-server
 ```
+### URLのバインドとかどこでやってる？
+Dispatcher.pmを見て。
+
+### どこまでやった？
+- とりあえず静的ファイルを読み込んでページ内に出力するところまで。(`/cat` でバインドしてる) @2020/06/04時点
 
 ## 参考
 - [WEB上からapacheの生ログをリアルタイム？で見ることが出来るようにするWEBアプリ - @OMAKASE](http://www.omakase.org/perl/web_apache_log.html)
