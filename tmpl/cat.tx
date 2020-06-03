@@ -19,9 +19,17 @@
         <![endif]-->
     </head>
     <body>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var psconsole = $('#console');
+                psconsole.scrollTop(
+                    psconsole[0].scrollHeight - psconsole.height()
+                );
+            });
+        </script>
         <div class="container">
             <p>cat result is here.</p>
-            <textarea readonly rows="30" cols="100"><: $cat :></textarea>
+            <textarea readonly id="console" rows="30" cols="100"><: $cat :></textarea>
         </div>
     </body>
 </html>
