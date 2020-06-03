@@ -9,10 +9,10 @@ sub hello_world {
     return $c->render('hello_world.tx', {});
 }
 
-sub hello_world_text {
-    my ($self, $c) = @_;
-    return 'hello world';
-}
+# sub hello_world_text {
+#     my ($self, $c) = @_;
+#     return 'hello world';
+# }
 
 sub cat {
     my $log_path = '../../static/test.log';

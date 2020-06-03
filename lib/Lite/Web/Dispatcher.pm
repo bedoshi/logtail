@@ -17,7 +17,9 @@ any '/' => sub {
 };
 
 any '/hello_world' => 'Lite::Web::Logtail#hello_world';
-any '/hello_world_text' => 'Lite::Web::Logtail#hello_world_text';
+## failed displaying string by controller returning only that.
+# any '/hello_world_text' => 'Lite::Web::Logtail#hello_world_text';
+
 
 post '/reset_counter' => sub {
     my $c = shift;
