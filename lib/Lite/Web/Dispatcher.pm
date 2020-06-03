@@ -20,6 +20,7 @@ any '/hello_world' => 'Lite::Web::Logtail#hello_world';
 ## failed displaying string by controller returning only that.
 # any '/hello_world_text' => 'Lite::Web::Logtail#hello_world_text';
 
+any '/cat' => 'Lite::Web::Logtail#cat';
 
 post '/reset_counter' => sub {
     my $c = shift;

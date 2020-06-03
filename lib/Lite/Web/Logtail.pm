@@ -4,6 +4,8 @@ use warnings;
 use utf8;
 use parent qw/Lite Amon2::Web/;
 
+use File::Basename;
+
 sub hello_world {
     my ($self, $c) = @_;
     return $c->render('hello_world.tx', {});
@@ -15,7 +17,18 @@ sub hello_world {
 # }
 
 sub cat {
-    my $log_path = '../../static/test.log';
+    my ($self, $c) = @_;
+    my $log_path = dirname(__FILE__) . '/test.log';
+
+    open(FILE, "< $log_path") or die "$!\n : $log_path";
+
+    my $str = '';
+    while(my $line = <FILE>){
+        $str .= $line;
+    }
+    close(FILE);
+
+    return $c->render('cat.tx', { cat => $str });
 
 }
 
