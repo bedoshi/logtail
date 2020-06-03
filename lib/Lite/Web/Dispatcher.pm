@@ -4,6 +4,8 @@ use warnings;
 use utf8;
 use Amon2::Web::Dispatcher::RouterBoom;
 
+use Lite::Web::Logtail;
+
 any '/' => sub {
     my ($c) = @_;
     my $counter = $c->session->get('counter') || 0;
@@ -13,6 +15,12 @@ any '/' => sub {
         counter => $counter,
     });
 };
+
+any '/hello_world' => 'Lite::Web::Logtail#hello_world';
+# any '/hello_world' => sub {
+#     my ($c) = @_;
+#     return $c->render('hello_world.tx', {});
+# };
 
 post '/reset_counter' => sub {
     my $c = shift;
@@ -25,5 +33,7 @@ post '/account/logout' => sub {
     $c->session->expire();
     return $c->redirect('/');
 };
+
+
 
 1;
