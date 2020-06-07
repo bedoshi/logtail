@@ -5,6 +5,7 @@ use utf8;
 use parent qw/Lite Amon2::Web/;
 
 use File::Basename;
+use Data::Dumper;
 
 sub hello_world {
     my ($self, $c) = @_;
@@ -17,6 +18,10 @@ sub cat {
     my $log_dir = dirname(__FILE__);
     my $log_path = $log_dir . '/test.log';
     my $log_backup = $log_dir . '/backup.log';
+
+    print "dir:" . Dumper($log_dir);
+    print "file path:" . Dumper($log_path);
+    print "backup file path:" . Dumper($log_backup);
 
     open(FILE, "< $log_path") or die "$!\n : $log_path";
     open(FILE, "> $log_backup") or die "$!\n : $log_backup";
@@ -38,6 +43,10 @@ sub get_diff {
     my $log_dir = dirname(__FILE__);
     my $log_path = $log_dir . '/test.log';
     my $log_backup = $log_dir . '/backup.log';
+
+    print "dir:" . Dumper($log_dir);
+    print "file path:" . Dumper($log_path);
+    print "backup file path:" . Dumper($log_backup);
 
     open(FILE_ORG, "< $log_path") or die "$!: $log_path";
     my $org_line_num = 0;
