@@ -18,9 +18,12 @@ sub hello_world {
 
 sub cat {
     my ($self, $c) = @_;
-    my $log_path = dirname(__FILE__) . '/test.log';
+    my $log_dir = dirname(__FILE__);
+    my $log_path = $log_dir . '/test.log';
+    my $log_backup = $log_dir . '/backup.log';
 
     open(FILE, "< $log_path") or die "$!\n : $log_path";
+    open(FILE, "> $log_backup") or die "$!\n : $log_backup";
 
     my $str = '';
     while(my $line = <FILE>){
