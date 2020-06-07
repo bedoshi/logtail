@@ -72,7 +72,7 @@ sub get_diff {
 
     return $c->render_json({
         diff => $diff_str,
-        lines => $backup_line_num - $org_line_num,
+        lines => $org_line_num - $backup_line_num,
     });
 }
 
