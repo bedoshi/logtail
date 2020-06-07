@@ -19,6 +19,7 @@ requires 'Twiggy';
 requires 'Plack';
 requires 'Amon2';
 requires 'Data::Dumper';
+requires 'File::Copy';
 
 on configure => sub {
     requires 'Module::Build', '0.38';
