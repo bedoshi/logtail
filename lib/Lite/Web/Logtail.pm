@@ -58,7 +58,7 @@ sub get_diff {
 
     open(FILE_BAC, "< $log_backup") or die "$!: $log_backup";
     my $backup_line_num = 0;
-    my $diff_str;
+    my $diff_str = '';
     while (my $line = <FILE_BAC>) {
         $backup_line_num++;
         if ($backup_line_num > $org_line_num) {
