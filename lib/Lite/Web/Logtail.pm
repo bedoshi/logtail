@@ -49,24 +49,24 @@ sub get_diff {
     print "file path:" . Dumper($log_path);
     print "backup file path:" . Dumper($log_backup);
 
-    open(FILE_ORG, "< $log_path") or die "$!: $log_path";
-    my $org_line_num = 0;
-    while(<FILE_ORG>) {
-        $org_line_num++;
-    }
-    close(FILE_ORG);
-
     open(FILE_BAC, "< $log_backup") or die "$!: $log_backup";
     my $backup_line_num = 0;
     my $diff_str = '';
-    while (my $line = <FILE_BAC>) {
+    while (<FILE_BAC>) {
         $backup_line_num++;
-        if ($backup_line_num > $org_line_num) {
+    }
+    close(FILE_BAC);
+
+    open(FILE_ORG, "< $log_path") or die "$!: $log_path";
+    my $org_line_num = 0;
+    while(my $line = <FILE_ORG>) {
+        $org_line_num++;
+        if ($org_line_num > $backup_line_num) {
             chomp($line);
             $diff_str .= $line . "\n";
         }
     }
-    close(FILE_BAC);
+    close(FILE_ORG);
 
     copy($log_path, $log_backup);
 
