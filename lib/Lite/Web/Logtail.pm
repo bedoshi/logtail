@@ -6,21 +6,17 @@ use parent qw/Lite Amon2::Web/;
 
 use File::Basename;
 
+my $log_dir = dirname(__FILE__);
+my $log_path = $log_dir . '/test.log';
+my $log_backup = $log_dir . '/backup.log';
+
 sub hello_world {
     my ($self, $c) = @_;
     return $c->render('hello_world.tx', {});
 }
 
-# sub hello_world_text {
-#     my ($self, $c) = @_;
-#     return 'hello world';
-# }
-
 sub cat {
     my ($self, $c) = @_;
-    my $log_dir = dirname(__FILE__);
-    my $log_path = $log_dir . '/test.log';
-    my $log_backup = $log_dir . '/backup.log';
 
     open(FILE, "< $log_path") or die "$!\n : $log_path";
     open(FILE, "> $log_backup") or die "$!\n : $log_backup";
