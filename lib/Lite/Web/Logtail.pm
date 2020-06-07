@@ -7,8 +7,6 @@ use parent qw/Lite Amon2::Web/;
 use File::Basename;
 
 my $log_dir = dirname(__FILE__);
-my $log_path = $log_dir . '/test.log';
-my $log_backup = $log_dir . '/backup.log';
 
 sub hello_world {
     my ($self, $c) = @_;
@@ -17,6 +15,9 @@ sub hello_world {
 
 sub cat {
     my ($self, $c) = @_;
+
+    my $log_path = $log_dir . '/test.log';
+    my $log_backup = $log_dir . '/backup.log';
 
     open(FILE, "< $log_path") or die "$!\n : $log_path";
     open(FILE, "> $log_backup") or die "$!\n : $log_backup";
@@ -34,6 +35,9 @@ sub cat {
 
 sub get_diff {
     my ($self, $c) = @_;
+
+    my $log_path = $log_dir . '/test.log';
+    my $log_backup = $log_dir . '/backup.log';
 
     open(FILE_ORG, "< $log_path") or die "$!: $log_path";
     my $org_line_num = 0;
