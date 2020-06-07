@@ -21,6 +21,7 @@ any '/hello_world' => 'Lite::Web::Logtail#hello_world';
 # any '/hello_world_text' => 'Lite::Web::Logtail#hello_world_text';
 
 any '/cat' => 'Lite::Web::Logtail#cat';
+any '/tail' => 'Lite::Web::Logtail#get_diff';
 
 post '/reset_counter' => sub {
     my $c = shift;
