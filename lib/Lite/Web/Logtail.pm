@@ -68,8 +68,12 @@ sub get_diff {
     }
     close(FILE_BAC);
 
+    copy($log_path, $log_backup);
+
     return $c->render_json({
         diff => $diff_str,
+        lines => $backup_line_num,
     });
 }
+
 1;
