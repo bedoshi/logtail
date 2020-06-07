@@ -32,4 +32,30 @@ sub cat {
 
 }
 
+sub get_diff {
+    my ($self, $c) = @_;
+
+    open(FILE_ORG, "< $log_path") or die "$!: $log_path";
+    my $org_line_num = 0;
+    while(<FILE_ORG>) {
+        $org_line_num++;
+    }
+    close(FILE_ORG);
+
+    open(FILE_BAC, "< $log_backup") or die "$!: $log_backup";
+    my $backup_line_num = 0;
+    my $diff_str;
+    while (my $line = <FILE_BAC>) {
+        $backup_line_num++;
+        if ($backup_line_num > $org_line_num) {
+            chomp($line);
+            $diff_str .= $line . "\n";
+        }
+    }
+    close(FILE_BAC);
+
+    return $c->render_json({
+        diff => $diff_str,
+    });
+}
 1;
