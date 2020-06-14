@@ -20,11 +20,15 @@
     </head>
     <body>
         <script type="text/javascript">
-            $(document).ready(function() {
-                var psconsole = $('#console');
+            function moveBottom() {
+                const psconsole = $('#console');
                 psconsole.scrollTop(
                     psconsole[0].scrollHeight - psconsole.height()
                 );
+            }
+
+            $(document).ready(function() {
+                moveBottom();
             });
 
             $(function(){
