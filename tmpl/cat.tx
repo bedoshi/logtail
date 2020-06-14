@@ -31,9 +31,11 @@
                 setInterval(function(){
                     $.get('/tail', function (data) {
                         if (data.lines !== 0) {
-                            const logArea = $('textarea[name="console"]');
+                            const logArea = $('#console');
                             let log = logArea.val();
+                            console.log('現在のログ' + log)
                             logArea.val(log + data.diff);
+                            console.log('acted');
                         }
                     });
                 },1000);
