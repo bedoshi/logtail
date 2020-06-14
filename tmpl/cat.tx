@@ -30,7 +30,10 @@
             $(function(){
                 setInterval(function(){
                     // リクエストを送信する
-
+                    // http://ec2-18-181-224-10.ap-northeast-1.compute.amazonaws.com:5000/tail
+                    $.get('/tail', function (data) {
+                        console.log(data);
+                    });
                     // レスポンスのJSONから差分を取得する
 
                     // 差分を id 'console' の末尾に足す
