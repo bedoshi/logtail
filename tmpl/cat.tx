@@ -26,6 +26,16 @@
                     psconsole[0].scrollHeight - psconsole.height()
                 );
             });
+
+            $(function(){
+                setInterval(function(){
+                    // リクエストを送信する
+
+                    // レスポンスのJSONから差分を取得する
+
+                    // 差分を id 'console' の末尾に足す
+                },1000);
+            });
         </script>
         <div class="container">
             <p>cat result is here.</p>
