@@ -40,6 +40,8 @@
                             console.log('現在のログ' + log)
                             logArea.val(log + data.diff);
                             console.log('acted');
+
+                            moveBottom();
                         }
                     });
                 },1000);
