@@ -71,7 +71,7 @@ sub form_test {
     my ($self, $c) = @_;
     use Data::Dumper;
     print Dumper($c->req->param('face_name'));
-    print Dumper($c->req->uploads->{'face_image'});
+    print Dumper($c->req->uploads);
     return $c->render('form.tx');
 }
 
