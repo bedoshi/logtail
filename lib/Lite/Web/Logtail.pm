@@ -67,4 +67,12 @@ sub get_diff {
     });
 }
 
+sub form_test {
+    my ($self, $c) = @_;
+    use Data::Dumper;
+    print Dumper($c->req->param('face_name'));
+    print Dumper($c->req->uploads->{'face_image'});
+    return $c->render('form.tx');
+}
+
 1;

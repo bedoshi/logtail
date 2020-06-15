@@ -1,0 +1,10 @@
+: cascade "include/layout.tx"
+
+: override content -> {
+    <form method="POST" action="form">
+        <input type="file" name="face_image">
+        <input type="text" name="face_name">
+        <input type="submit" value="post">
+    </form>
+
+}
