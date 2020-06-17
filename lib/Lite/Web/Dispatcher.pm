@@ -22,6 +22,7 @@ any '/hello_world' => 'Lite::Web::Logtail#hello_world';
 
 any '/cat' => 'Lite::Web::Logtail#cat';
 any '/tail' => 'Lite::Web::Logtail#get_diff';
+any '/form' => 'Lite::Web::Logtail#check_mutipart';
 
 post '/reset_counter' => sub {
     my $c = shift;

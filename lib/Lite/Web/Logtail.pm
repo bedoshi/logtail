@@ -67,4 +67,15 @@ sub get_diff {
     });
 }
 
+## multipart/form-data post からパラメータを取得したいだけのTrial code
+sub check_mutipart {
+    my ($self, $c) = @_;
+
+    my $param1      = $c->req->param('param1');
+    my $param2      = $c->req->param('param2');
+    my $file_path   = $c->req->uploads->{'file'}->{'tempname'}; #temp file path
+
+    return $c->render('form.tx', { param1 => $param1, param2 => $param2, file_path => $file_path});
+}
+
 1;
