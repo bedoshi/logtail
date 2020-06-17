@@ -24,7 +24,8 @@ any '/cat' => 'Lite::Web::Logtail#cat';
 any '/tail' => 'Lite::Web::Logtail#get_diff';
 any '/form' => 'Lite::Web::Logtail#check_mutipart';
 
-any '/form' => 'Lite::Web::Logtail#form_test';
+post '/api/form' => 'Lite::Web::Logtail#api_check_mutipart';
+
 post '/reset_counter' => sub {
     my $c = shift;
     $c->session->remove('counter');

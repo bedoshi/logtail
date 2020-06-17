@@ -78,4 +78,19 @@ sub check_mutipart {
     return $c->render('form.tx', { param1 => $param1, param2 => $param2, file_path => $file_path});
 }
 
+sub api_check_mutipart {
+    my ($self, $c) = @_;
+
+    my $param1      = $c->req->param('param1');
+    my $param2      = $c->req->param('param2');
+    my $file_path   = $c->req->uploads->{'file'}->{'tempname'}; #temp file path
+
+    return $c->render_json({
+        status => 200,
+        param1 => $param1,
+        param2 => $param2,
+        file_path => $file_path,
+    });
+}
+
 1;

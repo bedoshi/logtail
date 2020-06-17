@@ -20,6 +20,12 @@ requires 'Plack';
 requires 'Amon2';
 requires 'Data::Dumper';
 requires 'File::Copy';
+requires 'JSON::XS';
+
+## for test
+requires 'Test2::V0';
+requires 'Test::WWW::Mechanize';
+requires 'Test::More';
 
 on configure => sub {
     requires 'Module::Build', '0.38';
