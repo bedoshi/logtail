@@ -76,6 +76,7 @@
                     <label>file_path: </label>
                     <input type="file" name="file">
                 </div>
+                <input type="submit" value="送信">
             </form>
         </div>
     </body>
